@@ -1,0 +1,167 @@
+.container {
+    background-color: #FFFFFF;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0px;
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    border-width: thick;
+}
+
+.inner_container {
+    background-color: #F3F3F3;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    font-family: Calibri;
+    font-size: 14pt;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 20px;
+}
+
+.primary_header {
+    width: 100%;
+    background-color: #52bad5;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    clear: left;
+    border-bottom: 2px solid #2C9AB7;
+    text-align: center;
+}
+
+.secondary_header {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-color: #B3B3B3;
+  clear: left;
+}
+
+.footer {
+    background-color: #D6D5D5;
+    text-align: center;
+}
+
+.footnote {
+    text-align: center;
+    color: #00000;
+    text-transform: none;
+    font-weight: 500;
+    letter-spacing: 1px;
+    border-top-width: 2px;
+    font-family: Calibri;
+    text-decoration: none;
+    width: auto;
+}
+
+  .title {
+    padding-top: auto;
+    color: #2C2C2C;
+    font-weight: 700;
+    font-size: 24pt;
+    padding-bottom: auto;
+    font-family: Calibri;
+    line-height: 1;
+    page-break-after: avoid;
+    orphans: 2;
+    widows: 2;
+    text-align: right;
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+
+  .subtitle {
+    padding-top: 18pt;
+    color: #666666;
+    font-size: 24pt;
+    padding-bottom: 4pt;
+    font-family: "Georgia";
+    line-height: 1;
+    page-break-after: avoid;
+    font-style: italic;
+    orphans: 2;
+    widows: 2;
+    text-align: left;
+  }
+
+/* NAVIGATION BAR STYLING*/
+
+
+  .main_nav {
+    background-color: #52BAD5;
+    overflow: hidden;
+    text-align: center;
+    padding-left: 20%;
+    padding-right: 20%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Inside the navigation bar */
+  .main_nav a {
+    float: none;
+    color: #f2f2f2;
+    text-align: center;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    text-decoration: none;
+    font-size: 20px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    font-family: Calibri;
+    font-weight: bold;
+    overflow-x: auto;
+    overflow-y: auto;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .main_nav a:hover {
+    color: black;
+  }
+
+  .main_nav a.active {
+    color: #000000;
+  }
+
+/* Other Pages */
+  .my_paragraphs {
+    color: #000000;
+    font-family: Calibri;
+    font-size: 14pt;
+  }
+
+.my_sub_title {
+    color: #000000;
+    font-family: Calibri;
+    font-size: 16pt;
+    font-weight: bold;
+  }
+/* For Images */
+.image_container {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* For Texts and Paragraphs */
+  .my_resume_heading {
+    color: #000000;
+    font-family: Calibri;
+    font-size: 16pt;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .my_resume_subheading {
+    color: #000000;
+    font-family: Calibri;
+    font-size: 14pt;
+    font-weight: bold;
+    text-align: left;
+  }

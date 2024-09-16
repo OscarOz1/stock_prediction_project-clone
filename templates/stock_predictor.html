@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Next Day Closing Stock Price Prediction Model{% endblock %}</h1>
+  <h2>Ekso Bionics Holdings Inc</h2>
+{% endblock %}
+
+{% block content %}
+
+<p class="my_sub_title">Problem Statement</p>
+
+<p>Stock price changes are caused by very complex technical factors and often involve a degree of market sentiment. Furthermore, there are other complex, non-quantifiable factors to consider. Combined, these factors make predicting future stock prices inherently very difficult to accomplish.</p>
+
+<p>Herein lies my motivation; This project aimed to explore and develop a machine-learning model that predicts the next day’s closing price of a stock. Additionally, based on the prediction, the trend (Uptrend, Downtrend, or Flat) will be derived, delivering supplemental insights to inform investment decisions. </p>
+
+<p class="my_sub_title">The Approach</p>
+
+<p> <i>Data Acquisition:</i> Historical stock data, Ekso Bionics Holdings Inc, was obtained from Yahoo Finance (yfinance) by specifying a stock ticker symbol and a desired time range. Typical data points included opening prices, closing prices, high and low prices for each trading day, and trading volume. </p>
+
+<p><i> Data Cleaning and Preprocessing: </i> This raw financial data was then taken through a process of data cleaning and processing to address any inconsistencies. This prepared the data for the next steps.</p>
+
+<p><i>Feature Engineering:</i> The feature engineering aspect involved deriving new features from existing data to enhance the predictive power of the final model. This is where other technical indicators and market sentient come into play. By adding these to the list of features, the chances of the model performing better are increased. </p>
+
+<p><i> Feature Selection:</i> Once all the features were identified,  the selection process helped identify the most important features that would help the model make the best prediction. The goal here was to maximize the accuracy of the model at predicting the next day’s closing price. This did involve a fee iterations to accomplish</p>
+
+<p><i>Data Splitting, Training and Testing</i> The prepared dataset was then partitioned into a training set and a testing set. The idea here was to provide the training set for the model to learn from and then evaluate the model's performance on the testing set. Traditionally, this type of splitting helps machine learning models perform well on new data without being too general in their predictions.</p>
+
+<p>In my approach, I opted to train six different types of models, all of which perform their predictions differently using different types of parameters. My goal here was to compare these models and find the best-performing one: The one that provided the most accurate prediction. <p>
+	
+<p class="my_sub_title">Results</p>
+<p>The final model from the above process is what has been made available here.</p>
+
+
+<p><strong><i>Important note:</i></strong></p>
+	<ul class="my_paragraphs">
+		<li>In reference to days, only days when the market is open are counted; ensure this is considered for every feature.</li>
+		<li>This model also assumes knowledge of stock market indicators used and their calculations.</li>
+	</ul>
+
+
+<p>To predict the next day's closing price of our stock, Ekso Bionics Holdings Inc, the following features are required:</p>
+
+<p>1.) The high price from the day immediately before the desired prediction day. </p>
+
+<p>2.) The low price from the day immediately before the desired prediction day.</p>
+
+<p>3.) The closing price from the day immediately before the desired prediction day.</p>
+
+
+<div class="row">
+	<img src="{{url_for('static', filename='Ekso Price Data Chart.png')}}" class="center-block" width="800"/>
+</div>
+
+<p>4.) The Bollinger Bands standard deviation, calculated from a 20-day rolling period that immediately precedes the desired prediction day.</p>
+
+<div class="row">
+	<img src="{{url_for('static', filename='Ekso Bollinger Bands.png')}}" class="center-block" width="800"/>
+</div>
+
+<p>5.) The Stochastic Oscillator Lowest Low, calculated from a 14-day rolling period that immediately precedes the desired prediction day.</p>
+
+<p>6.) The Stochastic Oscillator Highest High, calculated from a 14-day rolling period that immediately precedes the desired prediction day.</p>
+
+<div class="row">
+	<img src="{{url_for('static', filename='Ekso Stochastic Oscillator.png')}}" class="center-block" width="800"/>
+</div>
+
+<p>
+7.) A 2-day lag of the Opening Price from the day immediately before the desired prediction day; which is  the opening price 3 days before the desired prediction day. For example, if the need is to predict the closing price of Friday, May 20th 2022, then this will be the opening price of Tuesday, May 17th, 2022.	
+</p>
+
+
+    <!-- This section is for the form -->
+    <div class="form-container ">
+        <form class="form-horizontal" action = "/predict" method="post">
+
+            <div class="form-group row">
+              <label class="control-label col-sm-2" for="high_price">High Price:</label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" id="high_price" name="high_price">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="control-label col-sm-2" for="low_price">Low Price:</label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" id="low_price" name="low_price">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="control-label col-sm-2" for="closing_price">Closing Price:</label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" id="closing_price" name="closing_price">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="control-label col-sm-2" for="bollinger_std">Bollinger Standard Deviation:</label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" id="bollinger_std" name="bollinger_std">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="control-label col-sm-2" for="stochastic_lowest_low">Stochastic Oscillator, Lowest Low:</label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" id="stochastic_lowest_low" name="stochastic_lowest_low">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="control-label col-sm-2" for="stochastic_highest_high">Stochastic Oscillator, Highest High:</label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" id="stochastic_highest_high" name="stochastic_highest_high">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="control-label col-sm-2" for="open_lag_2">Open Price, 2 Day Lag:</label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" id="open_lag_2" name="open_lag_2">
+              </div>
+            </div>
+
+            <div class="form-group row">
+            <label class="control-label col-sm-2" for="">&nbsp;</label>
+              <div class="col-sm-offset-2 col-sm-4">
+                <button type="submit" class="btn btn-primary">Predict</button>
+              </div>
+            </div>
+        </form>
+        <!-- Ends form section -->
+	<br>
+
+    </div>
+
+{% endblock %}

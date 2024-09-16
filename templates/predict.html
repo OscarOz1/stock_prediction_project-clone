@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Model Predictions{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+
+<h3>The model prediction states that the next day closing price of the stock is ${{ prediction }}.</h3>
+
+<p class="my_paragraphs">Based on the closing price of <strong>${{ closing_price }}</strong> from the day immediately before the desired prediction day, and a tolerance threshold of <strong>0.1%</strong>, it is predicted that the stock Ekso Bionics Holdings Inc will have an <strong>{{ trend }}</strong>.</p>
+
+<p class="my_paragraphs">Please Note: </p>
+		<ul class="my_paragraphs">
+  			<li>The tolerance threshold of 0.1% is applied such that prices within that range are considered Flat, higher are Uptrend, and lower are Downtrend..</li>
+  			<li>This model is for educational purposes only. Its predictions are not guaranteed and should not be the sole basis for any financial decisions.</li>
+		</ul>
+
+
+{% endblock %}

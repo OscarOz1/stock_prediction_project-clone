@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}General Projects{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+
+<p class="my_paragraphs">
+Other Machine Learning Projects are currently in the lab, stay tuned!
+</p>
+
+<div class="row">
+	<img src="{{url_for('static', filename='Building.jpg')}}" class="gallery__img" width="600"/>
+</div>
+
+{% endblock %}

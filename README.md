@@ -1,6 +1,6 @@
 **Project Objective and Scope**
 This project involves building a machine-learning model that can learn from a chosen past stock
-price. The model will be regression-based and will directly predict the next day's closing price of
+price. The model will predict the next day's closing price of
 the stock.
 
 
